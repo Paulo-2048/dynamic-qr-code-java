@@ -17,15 +17,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-// -- Tabela BNO_big_node
-// CREATE TABLE BNO_big_node
-// (
-//     bno_uuid        UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-//     bno_create_date TIMESTAMP        DEFAULT NOW(),
-//     bno_update_date TIMESTAMP        DEFAULT NOW(),
-//     INDEX ind_pk_bno (bno_uuid ASC)
-// );
-
 @Table(name = "BNO_big_node")
 @Entity(name = "BNO_big_node")
 @Getter
