@@ -1,8 +1,7 @@
 package com.updeploy.qrcode.dto;
 
-public class ResponseFail extends ApiResponse {
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+public class ResponseFail extends ResponseEntityExceptionHandler {
   
-    public ResponseFail(String message) {
-      super(message);
-    }
 }

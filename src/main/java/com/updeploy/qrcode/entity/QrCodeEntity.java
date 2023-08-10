@@ -19,8 +19,8 @@ import lombok.Setter;
 
 import com.updeploy.qrcode.dto.QrCodeRequestDTO;
 import com.updeploy.qrcode.dto.QrCodeTypeEnum;
-import com.updeploy.qrcode.rules.QrCodeRules;
-import com.updeploy.qrcode.utils.referenceManager;
+import com.updeploy.qrcode.rule.QrCodeRules;
+import com.updeploy.qrcode.util.referenceManager;
 import com.updeploy.qrcode.dto.QrCodePrivacyEnum;
 import com.updeploy.qrcode.dto.QrCodeStatusEnum;
 
@@ -98,31 +98,4 @@ public class QrCodeEntity {
     this.type = qrCodeRequestDTO.type();
     this.status = qrCodeRequestDTO.status();
   }
-
-  public void UpdateTotalQrCode(QrCodeRequestDTO qrCodeRequestDTO) throws Exception {
-
-    QrCodeRules.preUpdate(this.toQrCodeRequestDTO(), qrCodeRequestDTO);
-
-    this.snoUuid = qrCodeRequestDTO.snoUuid();
-    this.name = qrCodeRequestDTO.name();
-    this.description = qrCodeRequestDTO.description();
-    this.content = qrCodeRequestDTO.content();
-    this.privacy = qrCodeRequestDTO.privacy();
-    this.type = qrCodeRequestDTO.type();
-    this.status = qrCodeRequestDTO.status();
-  }
-
-  public void UpdateParcialQrCode(QrCodeRequestDTO qrCodeRequestDTO) throws Exception {
-
-   //QrCodeRules.preUpdate(this.toQrCodeRequestDTO(), qrCodeRequestDTO);
-
-   this.snoUuid = qrCodeRequestDTO.snoUuid() == null ? this.snoUuid : qrCodeRequestDTO.snoUuid();
-   this.name = qrCodeRequestDTO.name() == null ? this.name : qrCodeRequestDTO.name();
-   this.description = qrCodeRequestDTO.description() == null ? this.description : qrCodeRequestDTO.description();
-   this.content = qrCodeRequestDTO.content() == null ? this.content : qrCodeRequestDTO.content();
-   this.privacy = qrCodeRequestDTO.privacy() == null ? this.privacy : qrCodeRequestDTO.privacy();
-   this.type = qrCodeRequestDTO.type() == null ? this.type : qrCodeRequestDTO.type();
-   this.status = qrCodeRequestDTO.status() == null ? this.status : qrCodeRequestDTO.status();
-  }
-
 }

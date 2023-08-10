@@ -1,4 +1,4 @@
-package com.updeploy.qrcode.rules;
+package com.updeploy.qrcode.rule;
 
 import com.updeploy.qrcode.dto.QrCodeRequestDTO;
 import com.updeploy.qrcode.dto.QrCodeStatusEnum;

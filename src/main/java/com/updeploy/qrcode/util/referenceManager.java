@@ -1,4 +1,4 @@
-package com.updeploy.qrcode.utils;
+package com.updeploy.qrcode.util;
 
 public class referenceManager {
   
