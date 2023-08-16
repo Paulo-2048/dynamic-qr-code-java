@@ -38,14 +38,14 @@ public class BigNodeController {
   }
 
   @PostMapping
-  public ResponseEntity<ApiResponse> create() {
+  public ResponseEntity<ApiResponse> create() throws Exception {
     BigNodeEntity bigNodeInstance = bigNodeService.create();
 
     return ResponseEntity.ok(new ResponseSuccess("Create big node success", bigNodeInstance));
   }
 
   @DeleteMapping("/{uuid}")
-  public ResponseEntity<ApiResponse> delete(@PathVariable("uuid") String uuid) {
+  public ResponseEntity<ApiResponse> delete(@PathVariable("uuid") String uuid) throws Exception {
     bigNodeService.delete(uuid);
 
     return ResponseEntity.ok(new ResponseSuccess("Delete big node success").OnlyMessage());
