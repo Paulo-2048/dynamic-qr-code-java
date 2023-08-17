@@ -1,6 +1,6 @@
 package com.updeploy.qrcode.util;
 
-public class referenceManager {
+public class ReferenceManager {
   
   public static String generateReference() {
     String reference = "";

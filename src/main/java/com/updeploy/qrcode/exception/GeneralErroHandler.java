@@ -1,5 +1,6 @@
 package com.updeploy.qrcode.exception;
 
+import java.net.UnknownHostException;
 import java.util.NoSuchElementException;
 
 import org.springframework.core.Ordered;
@@ -20,6 +21,7 @@ public class GeneralErroHandler {
   @ExceptionHandler(Exception.class)
   public ResponseEntity<ResponseFail> Exception(Exception e, HttpServletRequest request) {
     ResponseFail responseFail = new ResponseFail(e, request);
+    System.out.println(e.getMessage());
     return ResponseEntity.status(responseFail.getStatus()).body(responseFail);
   }
 
@@ -27,7 +29,19 @@ public class GeneralErroHandler {
   public ResponseEntity<ResponseFail> handleNoSuchElementException(NoSuchElementException e, HttpServletRequest request) {
     ResponseFail responseFail = new ResponseFail(e, request);
     String[] requestPath = request.getRequestURI().split("/");
-    responseFail.setDetail(String.format("%s with id %s not found", requestPath[1], requestPath[2]));
+
+    if (requestPath.length >= 3)
+      responseFail.setDetail(String.format("%s with id %s not found", requestPath[1], requestPath[2]));
+      
+    return ResponseEntity.badRequest().body(responseFail);
+  }
+
+  @ExceptionHandler(UnknownHostException.class)
+  public ResponseEntity<ResponseFail> handleUnknownHostException(UnknownHostException e, HttpServletRequest request) {
+    ResponseFail responseFail = new ResponseFail(e, request);
+    String[] requestPath = request.getRequestURI().split("/");
+    responseFail.setTitle("Invalid URL");
+    responseFail.setDetail(String.format("Redirect URL to %s reference, is invalid", requestPath[1]));
     return ResponseEntity.badRequest().body(responseFail);
   }
 

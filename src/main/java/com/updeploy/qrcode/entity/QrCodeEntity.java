@@ -20,7 +20,7 @@ import lombok.Setter;
 import com.updeploy.qrcode.dto.QrCodeRequestDTO;
 import com.updeploy.qrcode.dto.QrCodeTypeEnum;
 import com.updeploy.qrcode.rule.QrCodeRules;
-import com.updeploy.qrcode.util.referenceManager;
+import com.updeploy.qrcode.util.ReferenceManager;
 import com.updeploy.qrcode.dto.QrCodePrivacyEnum;
 import com.updeploy.qrcode.dto.QrCodeStatusEnum;
 
@@ -93,7 +93,7 @@ public class QrCodeEntity {
     this.name = qrCodeRequestDTO.name();
     this.description = qrCodeRequestDTO.description();
     this.content = qrCodeRequestDTO.content();
-    this.reference = referenceManager.generateReference();
+    this.reference = ReferenceManager.generateReference();
     this.privacy = qrCodeRequestDTO.privacy();
     this.type = qrCodeRequestDTO.type();
     this.status = qrCodeRequestDTO.status();

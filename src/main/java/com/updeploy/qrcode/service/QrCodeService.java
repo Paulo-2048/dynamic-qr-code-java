@@ -66,7 +66,8 @@ public class QrCodeService {
     qrCode.setSnoUuid(qrCodeRequestDTO.snoUuid());
     qrCode.setName(qrCodeRequestDTO.name());
     qrCode.setDescription(qrCodeRequestDTO.description());
-    if (qrCode.getType() == QrCodeTypeEnum.DYNAMIC) { //Mover para rules
+    //Todo Mover para rules
+    if (qrCode.getType() == QrCodeTypeEnum.DYNAMIC) { 
       qrCode.setContent(qrCodeRequestDTO.content());
       qrCode.setPrivacy(qrCodeRequestDTO.privacy());
       qrCode.setStatus(qrCodeRequestDTO.status());
