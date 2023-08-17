@@ -21,6 +21,7 @@ import com.updeploy.qrcode.dto.QrCodeRequestDTO;
 import com.updeploy.qrcode.dto.QrCodeTypeEnum;
 import com.updeploy.qrcode.rule.QrCodeRules;
 import com.updeploy.qrcode.util.ReferenceManager;
+import com.updeploy.qrcode.dto.QrCodeContentTypeEnum;
 import com.updeploy.qrcode.dto.QrCodePrivacyEnum;
 import com.updeploy.qrcode.dto.QrCodeStatusEnum;
 
@@ -53,7 +54,6 @@ public class QrCodeEntity {
   @Enumerated(EnumType.STRING)
   private QrCodePrivacyEnum privacy;
 
-
   @Column(name = "qrc_type")
   @Enumerated(EnumType.STRING)
   private QrCodeTypeEnum type;
@@ -61,6 +61,10 @@ public class QrCodeEntity {
   @Column(name = "qrc_status")
   @Enumerated(EnumType.STRING)
   private QrCodeStatusEnum status;
+
+  @Column(name = "qrc_content_type")
+  @Enumerated(EnumType.STRING)
+  private QrCodeContentTypeEnum contentType;
 
   @CreationTimestamp
   @Column(name = "qrc_create_date")
@@ -76,6 +80,7 @@ public class QrCodeEntity {
       this.name,
       this.description,
       this.content,
+      this.contentType,
       this.privacy,
       this.type,
       this.status
@@ -93,6 +98,7 @@ public class QrCodeEntity {
     this.name = qrCodeRequestDTO.name();
     this.description = qrCodeRequestDTO.description();
     this.content = qrCodeRequestDTO.content();
+    this.contentType = qrCodeRequestDTO.contentType();
     this.reference = ReferenceManager.generateReference();
     this.privacy = qrCodeRequestDTO.privacy();
     this.type = qrCodeRequestDTO.type();

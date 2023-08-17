@@ -2,8 +2,9 @@ package com.updeploy.qrcode.util;
 
 import java.net.InetAddress;
 import java.net.URL;
+import java.net.UnknownHostException;
 
-public class UrlValidator {
+public class ContentValidator {
   
   public static void validateUrl(String url) throws Exception {
 
@@ -22,7 +23,7 @@ public class UrlValidator {
     }
 
     if(!isValid) {
-      throw new Exception("Invalid URL");
+      throw new UnknownHostException();
     }
 
     // Validate URL

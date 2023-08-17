@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.updeploy.qrcode.entity.QrCodeEntity;
 import com.updeploy.qrcode.repository.QrCodeRepository;
-import com.updeploy.qrcode.util.UrlValidator;
+import com.updeploy.qrcode.util.ContentValidator;
 
 @Service
 public class RedirectService {
@@ -17,7 +17,7 @@ public class RedirectService {
   public String getRetirectByReference(String reference) throws Exception {
     QrCodeEntity qrCode = qrCodeRepository.findByReference(reference).orElseThrow();
 
-    UrlValidator.validateUrl(qrCode.getContent());
+    ContentValidator.validateUrl(qrCode.getContent());
 
     return qrCode.getContent();
   }

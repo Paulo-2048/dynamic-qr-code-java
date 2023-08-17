@@ -6,11 +6,13 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.updeploy.qrcode.dto.QrCodeContentTypeEnum;
 import com.updeploy.qrcode.dto.QrCodeRequestDTO;
 import com.updeploy.qrcode.dto.QrCodeTypeEnum;
 import com.updeploy.qrcode.entity.QrCodeEntity;
 import com.updeploy.qrcode.repository.QrCodeRepository;
 import com.updeploy.qrcode.rule.QrCodeRules;
+import com.updeploy.qrcode.util.ContentValidator;
 
 @Service
 public class QrCodeService {
@@ -34,6 +36,10 @@ public class QrCodeService {
 
   public QrCodeEntity create(QrCodeRequestDTO qrCodeRequest) throws Exception {
     QrCodeEntity qrCode = new QrCodeEntity(qrCodeRequest);
+
+    if (qrCode.getContentType().equals(QrCodeContentTypeEnum.URL)) {
+      ContentValidator.validateUrl(qrCode.getContent());
+    }
 
     return qrCodeRepository.save(qrCode);
   }

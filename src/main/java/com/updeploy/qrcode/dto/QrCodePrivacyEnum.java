@@ -12,7 +12,6 @@ public enum QrCodePrivacyEnum {
   }
 
   public String value() {
-    System.out.println("SSS");
     return value;
   }
 
