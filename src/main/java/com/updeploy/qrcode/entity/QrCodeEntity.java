@@ -26,7 +26,7 @@ import com.updeploy.qrcode.dto.QrCodePrivacyEnum;
 import com.updeploy.qrcode.dto.QrCodeStatusEnum;
 
 @Table(name = "QRC_qr_code")
-@Entity(name = "QRC_qr_code")
+@Entity(name = "QRCode")
 @Getter
 @Setter
 public class QrCodeEntity {

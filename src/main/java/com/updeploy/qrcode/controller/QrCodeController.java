@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import com.updeploy.qrcode.dto.ResponseSuccess;
 import com.updeploy.qrcode.dto.ApiResponse;
 import com.updeploy.qrcode.dto.QrCodeRequestDTO;
 import com.updeploy.qrcode.entity.QrCodeEntity;
 import com.updeploy.qrcode.service.QrCodeService;
-
 
 @RestController
 @RequestMapping("qrcode")
@@ -30,10 +30,10 @@ public class QrCodeController {
   private QrCodeService qrCodeService;
 
   @GetMapping
-  public ResponseEntity<ApiResponse> getAll() throws Exception {
-      List<QrCodeEntity> qrCodeList = qrCodeService.getAll();
+  public ResponseEntity<ApiResponse> getAll(@RequestHeader @NonNull String snoUuidReference) throws Exception {
+    List<QrCodeEntity> qrCodeList = qrCodeService.getAllBySnoUuid(snoUuidReference);
 
-      return ResponseEntity.ok(new ResponseSuccess("Get qr code list success", qrCodeList));
+    return ResponseEntity.ok(new ResponseSuccess("Get qr code list success", qrCodeList));
   }
 
   @GetMapping("/{uuid}")

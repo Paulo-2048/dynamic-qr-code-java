@@ -31,7 +31,7 @@ import lombok.Setter;
 
 
 @Table(name = "SNO_small_node")
-@Entity(name = "SNO_small_node")
+@Entity(name = "SmallNode")
 @Getter
 @Setter
 public class SmallNodeEntity {

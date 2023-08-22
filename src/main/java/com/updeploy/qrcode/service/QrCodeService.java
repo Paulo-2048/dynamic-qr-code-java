@@ -26,6 +26,22 @@ public class QrCodeService {
     return qrCodeList;
   }
 
+  public List<QrCodeEntity> getAllBySnoUuid(String snoUuid) throws Exception {
+    UUID uuidObj = UUID.fromString(snoUuid);
+
+    List<QrCodeEntity> qrCodeList = qrCodeRepository.findBySnoUuid(uuidObj);
+
+    return qrCodeList;
+  }
+
+  public List<QrCodeEntity> getAllByBnoUuid(String bnoUuid) throws Exception {
+    UUID uuidObj = UUID.fromString(bnoUuid);
+
+    List<QrCodeEntity> qrCodeList = qrCodeRepository.findAllByBnoUuid(uuidObj);
+
+    return qrCodeList;
+  }
+
   public QrCodeEntity getById(String uuid) throws Exception {
     UUID uuidObj = UUID.fromString(uuid);
 

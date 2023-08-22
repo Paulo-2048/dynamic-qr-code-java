@@ -19,7 +19,7 @@ import com.updeploy.qrcode.dto.QrCodeAnalyticsRequestDTO;
 
 
 @Table(name = "QCA_qr_code_analytics")
-@Entity(name = "QCA_qr_code_analytics")
+@Entity(name = "QRCodeAnalytics")
 @Getter
 @Setter
 public class QrCodeAnalyticsEntity {

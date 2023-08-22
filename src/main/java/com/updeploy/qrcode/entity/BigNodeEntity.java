@@ -18,7 +18,7 @@ import lombok.Setter;
 
 
 @Table(name = "BNO_big_node")
-@Entity(name = "BNO_big_node")
+@Entity(name = "BigNode")
 @Getter
 @Setter
 public class BigNodeEntity {
